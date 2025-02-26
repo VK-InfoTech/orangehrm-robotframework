@@ -31,15 +31,15 @@ class ConfigManager:
     def _load_config(self) -> None:
         """Loads configuration settings from the config.ini file."""
         try:
-            self.db_username = self.config["MYSQl"]["mysql_username"]
-            self.db_password = self.config["MYSQl"]["mysql_password"]
-            self.db_host = self.config["MYSQl"]["mysql_host"]
-            self.db_name = self.config["MYSQl"]["mysql_database"]
-            # self.db_stage = self.config["MYSQL"]["Mysql_DataBaseName_Stage"]
-            # self.db_dev = self.config["MYSQL"]["Mysql_DataBaseName_Dev"]
-            # self.db_prod = self.config["MYSQL"]["Mysql_DataBaseName_Prod"]
-            self.env = self.config["ENVIRONMENT"]["environment"]
-            self.application = self.config["APPLICATION"]["Application"]
+            self.db_username = self.config["database"]["mysql_user"]
+            self.db_password = self.config["database"]["mysql_password"]
+            self.db_host = self.config["database"]["sql_host"]
+            self.db_name = self.config["database"]["name"]
+            # self.db_stage = self.config["database"]["Mysql_DataBaseName_Stage"]
+            # self.db_dev = self.config["database"]["Mysql_DataBaseName_Dev"]
+            # self.db_prod = self.config["database"]["Mysql_DataBaseName_Prod"]
+            self.env = self.config["environment"]["type"]
+            self.application = self.config["application"]["name"]
             logging.info("Configuration loaded successfully!")
 
         except KeyError as e:
@@ -50,7 +50,7 @@ class ConfigManager:
 class DatabaseManger:
     """Handles datanbase operations like inserting and updating test run records."""
 
-    def __init__(self, config: ConfigManager):
+    def __init__(self, config: ConfigManager, config_manager=None):
         self.config = config_manager
         self.conn: Optional[mysql.connector.connection.MySQLConnection] = None
         self.cursor: Optional[mysql.connector.cursor.MySQLCursor] = None
