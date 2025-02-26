@@ -1,131 +1,170 @@
-# OrangeHRM_Robotframework
-🚀 Robot Framework Test Automation
+# OrangeHRM Robot Framework Automation
 
-📌 Overview
+This repository is an automated testing framework using **Robot Framework** for web UI and API testing. It ensures modular, reusable, and scalable test automation practices to maintain software quality.
 
-This project is an automated test suite using Robot Framework for Web UI and API testing. It provides a modular, reusable, and scalable test automation framework to ensure software quality.
+---
 
-📂 Project Structure
+## 🚀 Features
 
-RobotFrameworkProject/
-│── tests/                # Test cases (organized into smoke, regression, etc.)
-│   ├── smoke_tests/      # Smoke test cases
-│   ├── regression_tests/ # Regression test cases
-│── resources/            # Reusable components (keywords, locators, variables)
-│   ├── keywords/         # Custom keywords
-│   ├── locators/         # UI locators and API endpoints
-│   ├── variables/        # Environment variables and test data
-│── logs/                 # Execution logs and screenshots
-│── results/              # Reports (log.html, report.html)
-│── test_suites/          # Test suite files
-│── libs/                 # Custom Python libraries (if needed)
-│── .gitignore            # Excludes unnecessary files from Git
-│── README.md             # Project documentation
-│── requirements.txt      # Python dependencies
-│── robot_tests.yaml      # CI/CD configuration (GitHub Actions)
-│── pyproject.toml        # Python dependency management (Poetry)
+- Automated testing for OrangeHRM.
+- Supports both Web UI (Selenium) and API testing.
+- Modular, keyword-driven implementation.
+- Supports data-driven testing.
+- Easily integrates with CI/CD pipelines.
 
-🔧 Installation & Setup
+---
 
-📌 1. Prerequisites
+## 📋 Requirements
 
-Python 3.x (https://www.python.org/downloads/)
+Make sure you have the following installed:
 
-Robot Framework (https://robotframework.org/)
+- **Python 3.11 or above**  
+  [Download Python here](https://www.python.org/downloads/)
+- **Robot Framework**   
+  Install via pip: `pip install robotframework`
+- **Selenium Library** for browser testing: `pip install robotframework-seleniumlibrary`
+- **Requests Library** for API testing: `pip install robotframework-requests`
+- **Browser Drivers**:
+  - [ChromeDriver](https://googlechromelabs.github.io/chrome-for-testing/)
+  - [MS EdgeDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 
-WebDrivers for browser automation
+For a complete list of dependencies, refer to `requirements.txt`.
 
-Chrome Driver: Download
+---
 
-Edge Driver: Download
+## 🔧 Setup
 
-IDE (Recommended: PyCharm, VS Code)
+Follow these steps to set up the framework:
 
-📌 2. Installation Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<your-repository>
+   cd OrangeHRM_Robotframework
+   ```
 
-Clone the repository:
+2. Create a virtual environment (recommended):
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate    # For Linux/macOS
+   .venv\Scripts\activate       # For Windows
+   ```
 
-git clone https://github.com/your-repo-name.git
-cd your-repo-name
+3. Install project dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Create and activate a virtual environment (optional but recommended):
+4. Verify installation:
+   ```bash
+   robot --version
+   ```
 
-python -m venv .venv
-source .venv/bin/activate  # macOS/Linux
-.venv\Scripts\activate     # Windows
+---
 
-Install dependencies:
+## 🏃 Running Tests
 
-pip install -r requirements.txt
+You can execute the tests using the following commands:
 
-Verify the installation:
+- **Run All Tests**:
+  ```bash
+  robot --outputdir results tests/
+  ```
 
-robot --version
+- **Run a Specific Test Suite**:
+  ```bash
+  robot --outputdir results tests/smoke_suite.robot
+  ```
 
-🏃 Running Tests
+- **Run a Specific Test Case**:
+  ```bash
+  robot --outputdir results tests/test_case.robot
+  ```
 
-📌 Run All Tests
+- **Run Tests with Tags**:
+  ```bash
+  robot --outputdir results -i Smoke tests/
+  ```
 
+- **Run in Headless Mode** (for CI/CD pipelines):
+  ```bash
+  robot --variable HEADLESS:True tests/
+  ```
+
+---
+
+## 📊 Test Reports & Logs
+
+Once the tests are executed, detailed reports and logs are generated in the `results/` folder:
+
+- **log.html** → Detailed execution logs.
+- **report.html** → Summary of the test execution.
+- **output.xml** → Machine-readable execution results.
+
+To open a report:
+```bash
+open results/report.html    # On macOS/Linux
+start results/report.html   # On Windows
+```
+
+---
+
+## 🔄 CI/CD Integration
+
+### GitHub Actions
+
+The project supports **GitHub Actions** for automated test execution. The pipeline configuration can be found in `.github/workflows/robot_tests.yaml`.
+
+### Jenkins
+
+For Jenkins integration, run Robot Framework tests using:
+```bash
 robot --outputdir results tests/
+```
 
-📌 Run Specific Test Suite
+### Docker (Optional)
 
-robot --outputdir results test_suites/smoke_suite.robot
-
-📌 Run Specific Test Case
-
-robot --outputdir results tests/smoke_tests/TC_001_Login.robot
-
-📌 Run Tests with Tags
-
-robot --outputdir results -i Smoke tests/
-
-📌 Run Tests in Headless Mode (For CI/CD)
-
-robot --variable HEADLESS:True tests/
-
-📊 Test Reports & Logs
-
-After execution, reports are generated in the results/ folder:
-
-log.html → Detailed execution logs
-
-report.html → Summary of test execution
-
-output.xml → Machine-readable execution report
-
-To open reports:
-
-open results/report.html
-
-🔄 CI/CD Integration (GitHub Actions)
-
-This project supports GitHub Actions for automated test execution on every code push.
-
-📌 Running Tests in CI/CD
-
-GitHub Actions: Configured via robot_tests.yaml
-
-Jenkins: Execute tests with:
-
-robot -d results tests/
-
-Docker (If applicable):
-
+To run the tests using Docker, use:
+```bash
 docker run -v $(pwd):/tests robotframework/robot tests/
+```
 
-🛠 Technologies & Libraries Used
+---
 
-✔ Robot Framework - Test automation framework✔ SeleniumLibrary - UI testing✔ RequestsLibrary - API testing✔ JSONLibrary - JSON parsing✔ DataDriver - Data-driven testing✔ LoggingLibrary - Custom logging✔ Poetry - Python dependency management
+## 🛠 Technologies Used
 
-🎯 Best Practices
+- **Robot Framework** - Test automation framework.
+- **SeleniumLibrary** - For browser automation.
+- **RequestsLibrary** - For API interactions.
+- **JSONLibrary** - For JSON parsing.
+- **DataDriver** - Data-driven testing support.
 
-✅ Use Page Object Model (POM) for UI tests✅ Modular keywords (resources/keywords/) for reusability✅ Organize locators separately (resources/locators/)✅ Keep test data external (resources/variables/)✅ Use tags ([Tags] Smoke, Regression) for filtering✅ Run tests in parallel for efficiency✅ Integrate with CI/CD for continuous testing
+---
 
-📬 Contact
+## 🎯 Test Automation Best Practices
 
-For any questions or contributions, feel free to reach out:
-✉ Email: vimalkumarm523@gmail.com🌐 GitHub: VK-InfoTech
+- Follow the **Page Object Model (POM)** for web tests.
+- Reuse keywords by organizing them into modular files under `resources/keywords/`.
+- Maintain centralized test data in `resources/variables/`.
+- Store locators separately in `resources/locators/`.
+- Use tagging ([Tags] Smoke, Regression) to execute specific tests.
+- Run parallel tests wherever possible.
+- Integrate tests into CI/CD pipelines for quicker feedback.
 
-This README.md provides comprehensive documentation for your Robot Framework project, making it easy to set up, execute, and maintain tests. 🚀 Let me know if you need modifications! 🔥
+---
 
+## 📬 Contact
+
+For questions, suggestions, or contributions, feel free to reach out:
+
+- **Email**: [vimalkumarm523@gmail.com](mailto:vimalkumarm523@gmail.com)
+- **GitHub**: [VK-InfoTech](https://github.com/orgs/VK-InfoTech/)
+
+---
+
+## 🔐 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Happy Testing! 🚀
