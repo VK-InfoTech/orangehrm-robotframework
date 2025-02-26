@@ -1,0 +1,38 @@
+################################################################################
+#################  CI/CD Configuration for GitHub Actions)  ####################
+################################################################################
+# This file contains the configuration for running Robot Framework tests on GitHub Actions.
+
+name: Robot Framework Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:  
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Robot Framework Tests
+        run: robot --outputdir results tests/
+
+      - name: Upload Robot Framework Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: robot-test-results
+          path: results/

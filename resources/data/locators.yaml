@@ -1,0 +1,22 @@
+common:
+  browser: chrome
+  clear_field: CTRl+a+BACKSPACE
+
+  localhost:
+    backend_url_page:
+      advanced_btn: xpath=//button[contains(.,'Advanced')]
+      proceed_unsafe_link: xpath=//a[.='Proceed to 127.0.0.1 (unsafe)']
+
+login:
+  gets_started_lbl_txt: xpath=//div[@class='signall']//h1[contains(.,'Started')]
+  dont_account_lbl_txt: xpath=//div[@class='signall']//following::div//p[contains(.,'have Account ?')]
+  signup_link_txt: xpath=//a[@href='/signup']//p[.='Signup']
+  username_icon: xpath=//p[text()='Username']//parent::label//img
+  username_placeholder: xpath=//p[text()='Username']
+  username_txt_box: xpath=//input[@id='User name']
+  password_icon: xpath=//p[text()='Password']//parent::label//img
+  password_placeholder: xpath=//p[text()='Password']
+  password_txt_box: css=#Password
+  encryption_icon: css=#standard-adornment-password>svg[data-testid='VisibilityIcon']
+  decryption_icon: css=#standard-adornment-password>svg[data-testid='VisibilityOffIcon']
+  login_btn: id=login

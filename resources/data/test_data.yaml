@@ -1,0 +1,52 @@
+nodata:
+  no_data_available_msg: "No Data Available"
+
+title:
+  login: "Login"
+
+toast_messages:
+  logged_in_failed_msg: "Login failed"
+  logged_in_success_msg: "Login successful"
+  invalid_password_msg: "Password format should be 8 characters long, contain 1 uppercase, 1 lowercase character, and 1 number"
+  failed_fill_all_fields_msg: "Please fill in all required fields."
+  invalid_phone_number_msg: "Your phone number is incomplete"
+  username_exists_msg: "Username already exists."
+  signup_success_msg: "Account created successfully"
+  no_product_selected_msg: "Please select at least one product"
+  product_added_msg: "Product added successfully"
+  customer_added_msg: "Customer added successfully"
+  phone_number_exists_msg: "Phone number already exists."
+  send_email_waiting_msg: "Waiting..."
+  send_email_success_msg: "Mail sent successfully"
+  send_msg_success_msg: "Message sent successfully"
+  order_taken_msg: "The order has been taken successfully"
+  fill_required_fields_msg: "Please fill in all required fields."
+  product_updated_msg: "Product updated successfully"
+  category_added_msg: "Category added successfully"
+  category_exists_error_msg: "Category name already exists"
+  category_updated_msg: "Category updated successfully"
+  branch_created_msg: "Branch created successfully"
+  branch_updated_msg: "Branch updated successfully"
+  user_created_msg: "User created successfully"
+  user_updated_msg: "User updated successfully"
+  organization_name_exists_msg: "Organization name already exists"
+  email_exists_msg: "Email already exists"
+  set_password_success_msg: "Password created successfully"
+  product_saved_msg: "Product saved successfully"
+  special_characters_not_allowed_msg: "Special characters are not allowed in the name."
+
+  api_response_errors:
+    registration_success_msg: "You have successfully registered"
+    username_exists_error: "Username already exists"
+    business_name_exists_error: "Organization name already exists"
+    email_exists_error: "Email already exists"
+
+login:
+  start_label_txt: "Get Started"
+  username_label_txt: "Username"
+  password_label_txt: "Password"
+  login_button_txt: "Login"
+  valid_username: "automationtest"
+  valid_password: "&lackMan123!"
+  invalid_username: "Auto"
+  invalid_password: "Test123"

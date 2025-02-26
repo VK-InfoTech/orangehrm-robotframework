@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MyProject"
+version = "1.0.0"
+dependencies = [
+    "robotframework",
+    "requests",
+    "selenium",
+]
+
+[tool.poetry]
+name = "robotframework-project"
+version = "0.1.0"
+description = "Automated testing framework using Robot Framework"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+robotframework = "^6.0.2"
+robotframework-seleniumlibrary = "^6.1.3"
+robotframework-requests = "^0.9.4"
