@@ -11,34 +11,42 @@ class ConfigReader:
 
     def environment(self):
         """ Get the environment value from the config.ini file """
-        return self.config['ENVIRONMENT']['environment']
+        return self.config['environment']['type']
 
     def application(self):
         """ Get the application value from the config.ini file """
-        return self.config['APPLICATION']['Application']
+        return self.config['application']['name']
 
-    def browser(self):
+    def get_browser(self):
         """ Get the browser value from the config.ini file """
-        return self.config['BROWSER']['Browser']
+        return self.config['environment']['browser']
+
+    def get_browser_mode(self):
+        """ Get the browser_mode value from the config.ini file """
+        return self.config['environment']['mode']
+
+    def get_start_url(self):
+        """ Get the start_url value from the config.ini file """
+        return self.config['environment']['start_url']
 
     def base_url(self):
         """ Get the base_url value from the config.ini file """
-        return self.config['RESTAPI']['base_url']
+        return self.config['rest_api']['base_url']
 
     def sign_in_url(self):
         """ Get the sign_in_url value from the config.ini file """
-        return self.config['USERS']['sign_in_url']
+        return self.config['users']['sign_in_url']
 
     def login_url(self):
         """ Get the login_url value from the config.ini file """
-        return self.config['USERS']['login_url']
+        return self.config['users']['login_url']
 
     def user_name(self):
         """ Get the user_name value from the config.ini file """
-        return self.config['USERS']['user_name']
+        return self.config['users']['username']
 
     def password(self):
         """ Get the password value from the config.ini file """
-        return self.config['USERS']['password']
+        return self.config['users']['password']
 
 ObjConfigReader = ConfigReader()

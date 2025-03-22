@@ -48,7 +48,7 @@ class ConfigManager:
 
 
 class DatabaseManger:
-    """Handles datanbase operations like inserting and updating test run records."""
+    """Handles database operations like inserting and updating test run records."""
 
     def __init__(self, config: ConfigManager, config_manager=None):
         self.config = config_manager
@@ -257,7 +257,7 @@ class ExcelManager:
         self.file_path = file_path
 
     def save_user_data(self, username: str = "tester", password: str = "&lackMan123!",
-                       business_name: str = "Demo") -> str:
+                       business_name: str = "Demo", df=None) -> str:
         """Appends user data to an Excel file."""
         new_entry = {"Business Name": business_name, "Username": username, "Password": password}
 
@@ -268,9 +268,9 @@ class ExcelManager:
                 df.pd.DataFrame(columns=["Business Name", "Username", "Password"])
             df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
             df.to_excel(self.file_path, index=False, engine="openpyxl")
-            succes_msg = "Excel updated successfully."
-            logging.info(succes_msg)
-            return succes_msg
+            success_msg = "Excel updated successfully."
+            logging.info(success_msg)
+            return success_msg
         except Exception as e:
             error_msg = f"Failed to update Excel: {e}"
             logging.error(error_msg)

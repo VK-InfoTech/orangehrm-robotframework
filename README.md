@@ -90,6 +90,17 @@ You can execute the tests using the following commands:
   robot --variable HEADLESS:True tests/
   ```
 
+- **Command-Line Usage**:
+  1. **Run with Different Browser and Mode**: Using variables, you can override the default browser or mode:
+  ```Shell Script
+  robot --variable BROWSER:firefox --variable MODE:incognito browser_script.robot
+  ```
+  2. **Example for Edge (Normal Mode)**:
+  ```Shell Script 
+  robot --variable BROWSER:edge --variable MODE:normal optimized_browser_script.robot
+  ```
+
+
 ---
 
 ## 📊 Test Reports & Logs
